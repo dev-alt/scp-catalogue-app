@@ -4,7 +4,10 @@ import { Box, Button, TextField } from '@mui/material';
 function AddEntry() {
     const [entryData, setEntryData] = useState({
       title: '',
+      object: '',
+      procedures: '',
       description: '',
+      reference: '',
       // Add more fields as needed
     });
   
@@ -26,7 +29,7 @@ function AddEntry() {
         <div>
           <h1>Add Entry</h1>
           <form onSubmit={handleSubmit}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
               <TextField
                 name="title"
                 label="Title"
@@ -38,7 +41,16 @@ function AddEntry() {
                 name="object"
                 label="object class"
                 variant="outlined"
-                value={entryData.title}
+                value={entryData.object}
+                onChange={handleChange}
+              />
+                            <TextField
+                name="procedures"
+                label="procedures"
+                variant="outlined"
+                multiline
+                rows={4}
+                value={entryData.procedures}
                 onChange={handleChange}
               />
               <TextField
@@ -50,7 +62,16 @@ function AddEntry() {
                 value={entryData.description}
                 onChange={handleChange}
               />
-              {/* Add more TextField components for additional fields */}
+                            <TextField
+                name="reference"
+                label="reference"
+                variant="outlined"
+                multiline
+                rows={4}
+                value={entryData.reference}
+                onChange={handleChange}
+              />
+              
               <Button variant="contained" color="primary" type="submit">
                 Add Entry
               </Button>
