@@ -29,7 +29,7 @@ function AddEntry() {
         <div>
           <h1>Add Entry</h1>
           <form onSubmit={handleSubmit}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5, margin: 5 }}>
               <TextField
                 name="title"
                 label="Title"
