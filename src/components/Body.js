@@ -19,13 +19,13 @@ function Body() {
         SCP Foundation
       </Typography>
 
-      {/* <Typography component="div" sx={{ mt: 4, textAlign: 'center' }}>
+      <Typography component="div" sx={{ mt: 4, textAlign: 'center' }}>
       {Data.map(scp => (
           <div key={scp.number}>
             <Link to={`/scp/${scp.number}`}>{scp.number}</Link>
           </div>
         ))}
-      </Typography> */}
+      </Typography> 
     </Box>
   );
 }
