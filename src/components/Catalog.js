@@ -16,7 +16,7 @@ function Catalog() {
   return (
     <Box sx={bodyStyles}>
       <Typography variant="h2" sx={{ fontFamily: 'Cinzel Decorative, serif', color: '#333', textAlign: 'center' }}>
-        SCP Foundation
+        SCP Foundation Catalog
       </Typography>
 
       <Typography component="div" sx={{ mt: 4, textAlign: 'center' }}>
