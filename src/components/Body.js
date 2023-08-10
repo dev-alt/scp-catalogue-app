@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material/styles';
 
 function Body()
 {
+    // eslint-disable-next-line
     const theme = useTheme();
     return(
         <div className="body">
