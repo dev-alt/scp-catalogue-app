@@ -20,7 +20,7 @@ function Navigation({ isLocked }) {
             <Button component={Link} to="/about" color="inherit">
               About
             </Button>
-            <Button component={Link} to="/add" color="inherit">
+            <Button component={Link} to="/addEntry" color="inherit">
               Add Entry
             </Button>
           </Box>

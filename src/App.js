@@ -7,6 +7,7 @@ import CustomThemeProvider from './ThemeProvider';
 import LoadingPage from './components/LoadingPage';
 import Body from './components/Body';
 import SCPFiles from './components/SCPFiles';
+import AddEntry from './components/AddEntry';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,7 @@ function App() {
           ) : (
             <Route path="/" element={<Body />} />
           )}
+          <Route path="/addEntry" element={<AddEntry />} />
           <Route path="/scp/:scpId" element={<SCPFiles />} />
         </Routes>
         <Footer isLocked={isLoading} />
