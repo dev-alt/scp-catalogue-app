@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Body from './components/Body';
+import Navigation from './components/Navigation';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CustomThemeProvider from './ThemeProvider';
+import LoadingPage from './components/LoadingPage';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleUnlock = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <CustomThemeProvider>
+        <Header />
+        <Navigation isLocked={isLoading} />
+        <Routes>
+          {isLoading ? (
+            <Route path="/" element={<LoadingPage onUnlock={handleUnlock} />} />
+          ) : (
+            <Route path="/" element={<Body />} />
+          )}
+        </Routes>
+        <Footer />
+      </CustomThemeProvider>
+    </Router>
   );
 }
 
