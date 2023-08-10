@@ -1,17 +1,10 @@
 import React from 'react';
-import { useTheme } from '@mui/material/styles';
 
 
-function Body()
-{
-    // eslint-disable-next-line
-    const theme = useTheme();
-    return(
-        <div className="body">
-            <h1>React Body</h1>
-        </div>
-        
-    )
-
+function Body() {
+  return (
+   <h1>SCP Foundation</h1>
+  );
 }
+
 export default Body;

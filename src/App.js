@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Body from './components/Body';
 import Navigation from './components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CustomThemeProvider from './ThemeProvider';
 import LoadingPage from './components/LoadingPage';
+import Body from './components/Body';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
