@@ -8,6 +8,7 @@ import LoadingPage from './components/LoadingPage';
 import Body from './components/Body';
 import SCPFiles from './components/SCPFiles';
 import AddEntry from './components/AddEntry';
+import Catalog from './components/Catalog.js';
 
 function App() {
   // Retrieve the isLoading state from localStorage, or default to true
@@ -37,6 +38,7 @@ function App() {
             ) : (
               <Route path="/" element={<Body />} />
             )}
+            <Route path="/catalog" element={<Catalog />} />
             <Route path="/addEntry" element={<AddEntry />} />
             <Route path="/scp/:scpId" element={<SCPFiles />} />
           </Routes>

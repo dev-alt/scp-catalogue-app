@@ -12,22 +12,22 @@ const bodyStyles = {
     backgroundColor: '#f0f0f0',
   };
 
-function Body() {
+function Catalog() {
   return (
     <Box sx={bodyStyles}>
       <Typography variant="h2" sx={{ fontFamily: 'Cinzel Decorative, serif', color: '#333', textAlign: 'center' }}>
         SCP Foundation
       </Typography>
 
-      {/* <Typography component="div" sx={{ mt: 4, textAlign: 'center' }}>
+      <Typography component="div" sx={{ mt: 4, textAlign: 'center' }}>
       {Data.map(scp => (
           <div key={scp.number}>
             <Link to={`/scp/${scp.number}`}>{scp.number}</Link>
           </div>
         ))}
-      </Typography> */}
+      </Typography>
     </Box>
   );
 }
 
-export default Body;
+export default Catalog;
