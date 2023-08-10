@@ -12,7 +12,7 @@ const bodyStyles = {
     backgroundColor: '#f0f0f0',
   };
 
-function Body(props) {
+function Body() {
   return (
     <Box sx={bodyStyles}>
       <Typography variant="h2" sx={{ fontFamily: 'Cinzel Decorative, serif', color: '#333', textAlign: 'center' }}>
