@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CustomThemeProvider from './ThemeProvider';
 import LoadingPage from './components/LoadingPage';
 import Body from './components/Body';
+import SCPFiles from './components/SCPFiles';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +26,7 @@ function App() {
           ) : (
             <Route path="/" element={<Body />} />
           )}
+          <Route path="/scp/:scpId" element={<SCPFiles />} />
         </Routes>
         <Footer isLocked={isLoading} />
       </CustomThemeProvider>
