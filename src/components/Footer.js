@@ -9,7 +9,12 @@ const footerStyles = {
   borderTop: '2px solid #a81c1c',
 };
 
-function Footer() {
+function Footer({ isLocked }) {
+  // If the app is locked, do not render the footer
+  if (isLocked) {
+    return null;
+  }
+
   return (
     <AppBar position="static" sx={footerStyles}>
       <Toolbar>

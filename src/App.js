@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
@@ -18,7 +17,7 @@ function App() {
   return (
     <Router>
       <CustomThemeProvider>
-        <Header />
+        <Header isLocked={isLoading}/>
         <Navigation isLocked={isLoading} />
         <Routes>
           {isLoading ? (
@@ -27,7 +26,7 @@ function App() {
             <Route path="/" element={<Body />} />
           )}
         </Routes>
-        <Footer />
+        <Footer isLocked={isLoading} />
       </CustomThemeProvider>
     </Router>
   );

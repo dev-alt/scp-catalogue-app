@@ -1,11 +1,17 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
-
-//import logo from public folder
 import logo from '../assets/logo.png';
+import { useTheme } from '@mui/material/styles';
 
+function Header({ isLocked }) {
+  // If the app is locked, do not render the header
+  if (isLocked) {
+    return null;
+  }
+  
+// eslint-disable-next-line
+  const theme = useTheme();
 
-function Header() {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#1b1b1b', boxShadow: 'none' }}>
       <Toolbar>

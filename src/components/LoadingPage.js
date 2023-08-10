@@ -11,6 +11,7 @@ const LoadingPage = ({ onUnlock }) => {
       justifyContent="center"
       height="100vh"
     >
+      <h1>SCP Foundation</h1>
       <img
         src={logo}
         alt="SCP Foundation Logo"
