@@ -1,4 +1,4 @@
-name: Build and deploy Node.js app to Azure Web App - scpFoundationWebsite
+name: Build and deploy Node.js app to Azure Web App - scpproject
 
 on:
   push:
@@ -50,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'scpFoundationWebsite'
+          app-name: 'scpproject'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8536F502159E4A1DAD5A4D783A1B027F }}
           package: .
