@@ -6,13 +6,14 @@ import Data from '../assets/scpData.json';
 const bodyStyles = {
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
   justifyContent: 'flex-start',
   minHeight: 'calc(100vh - 64px - 64px)',
   backgroundColor: '#f0f0f0',
-  margin: '15px 15px 15px 15px', 
-    padding: '15px 15px 15px 15px',
+  margin: '15px 15px 15px 15px',
+  padding: '15px 15px 15px 15px',
+  lineHeight: 1,
 };
+
 
 function SCPFiles() {
   const { scpId } = useParams();
@@ -32,10 +33,27 @@ function SCPFiles() {
         <p key={desc}>{desc}</p>
       ))}
 
-      <h4>Reference:</h4>
-      {scp.reference.map((ref, index) => (
-        <p key={index}>{ref}</p>
-      ))}
+      {scp.reference && scp.reference.length > 0 && (
+        <div>
+          <h4>Reference:</h4>
+          {scp.reference.map((ref, index) => (
+            <p key={index}>{ref}</p>
+          ))}
+        </div>
+      )}
+
+      {scp.Addendum && Object.keys(scp.Addendum).length > 0 && (
+        <div>
+          <h4>Addendum:</h4>
+          {Object.entries(scp.Addendum).map(([key, value]) => (
+            <div key={key}>
+              <h5>Addendum: {key}</h5>
+              <p>{value}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
     </Box>
   );
 }

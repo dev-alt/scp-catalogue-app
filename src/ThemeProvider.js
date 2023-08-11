@@ -9,7 +9,17 @@ const theme = createTheme({
     background: {
       default: '#1b1b1b', // Customize background color
     },
-    // Add other theme customizations as needed
+    typography: {
+      h1: {
+        color: '#a81c1c', // Set the color for h1 elements
+      },
+      h2: {
+        fontFamily: 'Cinzel Decorative, serif', 
+        color: '#a81c1c', 
+        textAlign: 'center'
+      }
+    },
+
   },
 });
 
