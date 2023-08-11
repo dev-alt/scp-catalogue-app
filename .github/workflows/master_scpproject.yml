@@ -1,4 +1,7 @@
-name: Build and deploy Node.js app to Azure Web App - scpProject
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - scpproject
 
 on:
   push:
@@ -18,18 +21,17 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: npm install, build
+      - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
-          # Create a zip archive of the build artifacts
-          zip -r node-app.zip build/*
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: node-app.zip
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'scpProject'
+          app-name: 'scpproject'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FECD25BD249C44DD94B31584143D6DF9 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C865237E30C54F7D8755271A680DEECD }}
           package: .
