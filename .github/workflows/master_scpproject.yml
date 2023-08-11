@@ -58,4 +58,4 @@ jobs:
           app-name: 'scpproject'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C865237E30C54F7D8755271A680DEECD }}
-          package: .
+          package: ./dist/node-app.zip  # Provide the correct path to the zipped package
