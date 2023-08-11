@@ -25,12 +25,14 @@ jobs:
         run: |
           npm install
           npm run build --if-present
+          mkdir -p dist
+          zip -r dist/node-app.zip build/*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: dist/node-app.zip
 
   deploy:
     runs-on: ubuntu-latest
