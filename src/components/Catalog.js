@@ -4,14 +4,6 @@ import Data from '../assets/scpData.json';
 import { Link } from 'react-router-dom';
 import CustomThemeProvider from '../ThemeProvider'; // 
 
-const bodyStyles = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start', // Change to 'flex-start'
-    minHeight: 'calc(100vh - 64px - 64px)',
-    backgroundColor: '#f0f0f0',
-  };
 
 function Catalog() {
   return (
