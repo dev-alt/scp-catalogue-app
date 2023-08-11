@@ -4,14 +4,16 @@ import { Box } from '@mui/material'; // Import the Box component
 import Data from '../assets/scpData.json';
 
 const bodyStyles = {
-  display: 'flex',
+  display: 'flex', // Use flexbox to center content
   flexDirection: 'column',
-  justifyContent: 'flex-start',
+  justifyContent: 'center', // Center vertically
+  alignItems: 'center', // Center horizontally
   minHeight: 'calc(100vh - 64px - 64px)',
   backgroundColor: '#f0f0f0',
-  margin: '15px 15px 15px 15px',
-  padding: '15px 15px 15px 15px',
+  margin: '15px',
+  padding: '15px',
   lineHeight: 1,
+  textAlign: 'left',
 };
 
 
@@ -19,18 +21,32 @@ function SCPFiles() {
   const { scpId } = useParams();
   const scp = Data.find(item => item.number === scpId);
 
+  if (!scp) {
+    return <div>SCP not found</div>;
+  }
+
   return (
     <Box sx={bodyStyles}>
       <h3>{scp.number}</h3>
       <h4>Object Class: {scp.objectClass}</h4>
-      <h4>special Containment Procedures:</h4>
+
+      {scp.image && scp.image.length > 0 && (
+        <img src={scp.image} alt={scp.number} 
+       />
+      )}
+
+      <h4>Special Containment Procedures:</h4>
       {scp.specialContainmentProcedures.map((Procedures) => (
+        <div>
         <p key={Procedures}>{Procedures}</p>
+        </div>
       ))}
 
       <h4>Description:</h4>
       {scp.description.map((desc) => (
+        <div>
         <p key={desc}>{desc}</p>
+        </div>
       ))}
 
       {scp.reference && scp.reference.length > 0 && (
