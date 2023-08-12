@@ -31,30 +31,36 @@ function SCPFiles() {
       <h4>Object Class: {scp.objectClass}</h4>
 
       {scp.image && scp.image.length > 0 && (
-        <img src={scp.image} alt={scp.number} 
-       />
+        <img src={scp.image} alt={scp.number}
+        />
       )}
 
       <h4>Special Containment Procedures:</h4>
-      {scp.specialContainmentProcedures.map((Procedures) => (
-        <div>
-        <p key={Procedures}>{Procedures}</p>
-        </div>
-      ))}
+      <div style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
+        {scp.specialContainmentProcedures.map((procedure, index) => (
+          <p key={index} style={{ margin: '8px 0', fontSize: '16px' }}>{procedure}</p>
+        ))}
+      </div>
 
-      <h4>Description:</h4>
-      {scp.description.map((desc) => (
-        <div>
-        <p key={desc}>{desc}</p>
-        </div>
-      ))}
+      <div style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
+        {scp.description.map((desc, index) => (
+          <Box key={index} mt={1} fontSize={16}>
+            {desc}
+          </Box>
+        ))}
+      </div>
+
 
       {scp.reference && scp.reference.length > 0 && (
         <div>
           <h4>Reference:</h4>
-          {scp.reference.map((ref, index) => (
-            <p key={index}>{ref}</p>
-          ))}
+          <div style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
+            {scp.reference.map((ref, index) => (
+              <Box key={index} mt={1} fontSize={16}>
+                {ref}
+              </Box>
+            ))}
+          </div>
         </div>
       )}
 
@@ -62,13 +68,18 @@ function SCPFiles() {
         <div>
           <h4>Addendum:</h4>
           {Object.entries(scp.Addendum).map(([key, value]) => (
-            <div key={key}>
+            <div key={key} style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
               <h5>Addendum: {key}</h5>
-              <p>{value}</p>
+              <Box mt={1} fontSize={16}>
+                {value}
+              </Box>
             </div>
           ))}
         </div>
       )}
+
+
+
 
     </Box>
   );
