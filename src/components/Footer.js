@@ -7,7 +7,7 @@ const footerStyles = {
   width: '100%',
   backgroundColor: '#1b1b1b',
   borderTop: '2px solid #a81c1c',
-  margin: 0, // Reset margin
+  margin: 0,
 };
 
 function Footer({ isLocked }) {

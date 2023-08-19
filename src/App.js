@@ -9,6 +9,7 @@ import Body from './components/Body';
 import SCPFiles from './components/SCPFiles';
 import AddEntry from './components/AddEntry';
 import Catalog from './components/Catalog.js';
+import Data from './assets/scpData.json';
 
 function App() {
   // Retrieve the isLoading state from localStorage, or default to true
@@ -30,7 +31,7 @@ function App() {
     <Router>
       <CustomThemeProvider>
         <Header isLocked={isLoading} />
-        <Navigation isLocked={isLoading} />
+        <Navigation isLocked={isLoading} scpEntries={Data} />
         <div style={{ marginTop: '64px', marginBottom: '64px' }}>
           <Routes>
             {isLoading ? (

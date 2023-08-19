@@ -1,25 +1,27 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Box } from '@mui/material'; // Import the Box component
+import { Box, Typography } from '@mui/material'; // Import Material-UI components
 import Data from '../assets/scpData.json';
 
 const bodyStyles = {
-  display: 'flex', // Use flexbox to center content
+  display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center', // Center vertically
-  alignItems: 'center', // Center horizontally
+  justifyContent: 'center',
+  alignItems: 'center',
   minHeight: 'calc(100vh - 64px - 64px)',
-  backgroundColor: '#f0f0f0',
   margin: '15px',
   padding: '15px',
   lineHeight: 1,
   textAlign: 'left',
 };
 
-
-function SCPFiles() {
+const SCPFiles = () => {
   const { scpId } = useParams();
-  const scp = Data.find(item => item.number === scpId);
+  const scpList = Data.sort((a, b) => {
+    // Sort by SCP number (assuming the number is a string)
+    return a.number.localeCompare(b.number);
+  });
+  const scp = scpList.find(item => item.number === scpId);
 
   if (!scp) {
     return <div>SCP not found</div>;
@@ -27,60 +29,90 @@ function SCPFiles() {
 
   return (
     <Box sx={bodyStyles}>
-      <h3>{scp.number}</h3>
-      <h4>Object Class: {scp.objectClass}</h4>
+      <Typography variant="h3">{scp.number}</Typography>
+      <Typography variant="h4">Object Class: {scp.objectClass}</Typography>
 
       {scp.image && scp.image.length > 0 && (
-        <img src={scp.image} alt={scp.number}
-        />
+        <img src={scp.image} alt={scp.number} />
       )}
 
-      <h4>Special Containment Procedures:</h4>
-      <div style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
+      <Typography variant="h4">Special Containment Procedures:</Typography>
+      <Box>
         {scp.specialContainmentProcedures.map((procedure, index) => (
-          <p key={index} style={{ margin: '8px 0', fontSize: '16px' }}>{procedure}</p>
+          <Typography
+            key={index}
+            sx={{ margin: '8px 0', fontSize: '16px' }}
+          >
+            {procedure}
+          </Typography>
         ))}
-      </div>
+      </Box>
 
-      <div style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
+      <Box>
         {scp.description.map((desc, index) => (
-          <Box key={index} mt={1} fontSize={16}>
+          <Typography key={index} mt={1} fontSize={16}>
             {desc}
-          </Box>
+          </Typography>
         ))}
-      </div>
-
+      </Box>
 
       {scp.reference && scp.reference.length > 0 && (
-        <div>
-          <h4>Reference:</h4>
-          <div style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
+        <Box>
+          <Typography variant="h4">Reference:</Typography>
+          <Box
+            sx={{
+              backgroundColor: '#f8f8f8',
+              padding: '10px',
+              borderRadius: '5px',
+            }}
+          >
             {scp.reference.map((ref, index) => (
-              <Box key={index} mt={1} fontSize={16}>
+              <Typography key={index} mt={1} fontSize={16}>
                 {ref}
-              </Box>
+              </Typography>
             ))}
-          </div>
-        </div>
+          </Box>
+        </Box>
       )}
 
       {scp.Addendum && Object.keys(scp.Addendum).length > 0 && (
-        <div>
-          <h4>Addendum:</h4>
+        <Box>
+          <Typography variant="h4">Addendum:</Typography>
           {Object.entries(scp.Addendum).map(([key, value]) => (
-            <div key={key} style={{ backgroundColor: '#f8f8f8', padding: '10px', borderRadius: '5px' }}>
-              <h5>Addendum: {key}</h5>
-              <Box mt={1} fontSize={16}>
+            <Box
+              key={key}>
+              <Typography variant="h5">Addendum: {key}</Typography>
+              <Typography mt={1} fontSize={16}>
                 {value}
-              </Box>
-            </div>
+              </Typography>
+            </Box>
           ))}
-        </div>
+        </Box>
       )}
 
-
-
-
+      {scp.appendix && scp.appendix.length > 0 && (
+        <Box>
+          <Typography variant="h4">Appendices:</Typography>
+          {scp.appendix.map((appendix, index) => (
+            <Box key={index}              >
+              <Typography variant="h5">{appendix.title}</Typography>
+              {appendix.description && (
+                <Typography mt={1} fontSize={16}>
+                  {appendix.description}
+                </Typography>
+              )}
+              {appendix.item && (
+                <Box>
+                  <Typography>Item: {appendix.item}</Typography>
+                  <Typography>Date of Discovery: {appendix.dateOfDiscovery}</Typography>
+                  <Typography>Origin of Object: {appendix.originOfObject}</Typography>
+                  <Typography>Description: {appendix.description}</Typography>
+                </Box>
+              )}
+            </Box>
+          ))}
+        </Box>
+      )}
     </Box>
   );
 }
