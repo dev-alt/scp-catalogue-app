@@ -8,7 +8,6 @@ function AddEntry() {
         procedures: '',
         description: '',
         reference: '',
-        // Add more fields as needed
     });
 
     const handleChange = (event) => {
