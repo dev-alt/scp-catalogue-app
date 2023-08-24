@@ -32,7 +32,7 @@ function App() {
       <CustomThemeProvider>
         <Header isLocked={isLoading} />
         <Navigation isLocked={isLoading} scpEntries={Data} />
-        <div style={{ marginTop: '64px', marginBottom: '64px' }}>
+
           <Routes>
             {isLoading ? (
               <Route path="/" element={<LoadingPage onUnlock={handleUnlock} />} />
@@ -43,7 +43,7 @@ function App() {
             <Route path="/addEntry" element={<AddEntry />} />
             <Route path="/scp/:scpId" element={<SCPFiles />} />
           </Routes>
-        </div>
+
         <Footer isLocked={isLoading} />
       </CustomThemeProvider>
     </Router>

@@ -9,7 +9,7 @@ const LoadingPage = ({ onUnlock }) => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      height="100vh"
+      height="60vh"
     >
       <h1>SCP Foundation</h1>
       <img

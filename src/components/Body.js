@@ -7,7 +7,7 @@ const bodyStyles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'flex-start', // Change to 'flex-start'
+    justifyContent: 'flex-start',
     minHeight: 'calc(100vh - 64px - 64px)',
     backgroundColor: '#f0f0f0',
     padding: '15px',
@@ -32,16 +32,16 @@ function Body() {
       <Typography variant="h2" sx={{ fontFamily: 'Cinzel Decorative, serif', color: '#333', textAlign: 'center' }}>
         SCP Foundation
       </Typography>
-      <div>
+      <Box>
         {randomEntries.map((scp, index) => (
-          <div key={index} style={entryBoxStyles}>
+          <Box key={index} style={entryBoxStyles}>
             <h3>{scp.number}</h3>
             <h4>Object Class: {scp.objectClass}</h4>
             <p>{scp.description[0]}</p>
             <Link to={`/scp/${scp.number}`}>Read More</Link>
-          </div>
+          </Box>
         ))}
-      </div>
+      </Box>
       
     </Box>
   );

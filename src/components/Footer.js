@@ -2,7 +2,6 @@ import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 
 const footerStyles = {
-  position: 'fixed',
   bottom: 0,
   width: '100%',
   backgroundColor: '#1b1b1b',
