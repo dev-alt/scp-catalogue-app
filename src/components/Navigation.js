@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Box, Menu, MenuItem } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import Data from '../assets/scpData.json';
+
 
 function Navigation({ isLocked, scpEntries }) {
   const theme = useTheme();

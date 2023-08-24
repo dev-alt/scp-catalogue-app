@@ -20,6 +20,7 @@ const LoadingPage = ({ onUnlock }) => {
           height: '30%',
         }}
       />
+      
       <CircularProgress
         size={80}
         color="primary"
