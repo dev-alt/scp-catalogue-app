@@ -1,7 +1,5 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import logo from '../assets/logo.png';
-import { useTheme } from '@mui/material/styles';
 
 function Header({ isLocked }) {
   // If the app is locked, do not render the header
@@ -9,9 +7,6 @@ function Header({ isLocked }) {
     return null;
   }
   
-// eslint-disable-next-line
-  const theme = useTheme();
-
   return (
     <AppBar position="static" sx={{ backgroundColor: '#1b1b1b', boxShadow: 'none' }}>
       <Toolbar>
