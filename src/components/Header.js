@@ -15,7 +15,6 @@ function Header({ isLocked }) {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#1b1b1b', boxShadow: 'none' }}>
       <Toolbar>
-        <img src={logo} alt="SCP Foundation Logo" style={{ width: '50px', marginRight: '10px' }} />
         <Typography variant="h4" sx={{ fontFamily: 'Cinzel Decorative, serif', letterSpacing: 2, color: '#a81c1c', textAlign: 'center', width: '100%' }}>
           SCP Foundation
         </Typography>
