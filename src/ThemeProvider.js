@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
+    
     primary: {
       main: '#a81c1c', // Customize primary color
     },
@@ -23,6 +24,12 @@ const theme = createTheme({
   },
 });
 
+/**
+ * CustomThemeProvider component that wraps the ThemeProvider component from the styled-components library.
+ * @param {Object} props - The props object for the CustomThemeProvider component.
+ * @param {ReactNode} props.children - The child components to be wrapped by the CustomThemeProvider.
+ * @returns {JSX.Element} - The JSX element representing the CustomThemeProvider component.
+ */
 const CustomThemeProvider = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
