@@ -4,6 +4,14 @@ import { AppBar, Toolbar, Button, Box, Menu, MenuItem } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 
+/**
+ * Navigation component that displays a navigation bar with links to different pages.
+ * @param {Object} props - The component props.
+ * @param {boolean} props.isLocked - Whether the navigation bar is locked or not.
+ * @param {Array} props.scpEntries - An array of SCP entries to display in the catalog menu.
+ * @returns {JSX.Element} - The Navigation component.
+ */
+
 function Navigation({ isLocked, scpEntries }) {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -54,9 +62,7 @@ function Navigation({ isLocked, scpEntries }) {
                 </MenuItem>
               ))}
             </Menu>
-            <Button component={Link} to="/about" color="inherit">
-              About
-            </Button>
+
             <Button component={Link} to="/addEntry" color="inherit">
               Add Entry
             </Button>

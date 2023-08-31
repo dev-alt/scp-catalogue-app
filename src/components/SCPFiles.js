@@ -1,7 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { Box, Typography, Grid } from '@mui/material'; // Import Material-UI components
-import Data from '../assets/scpData.json';
+import { useParams } from 'react-router-dom';
 
 const bodyStyles = {
   display: 'flex',
@@ -13,20 +12,18 @@ const bodyStyles = {
   textAlign: 'left',
 };
 
-const SCPFiles = () => {
+function SCPFiles({ scpEntries }) {
   const { scpId } = useParams();
-  const scpList = Data.sort((a, b) => {
-    // Sort by SCP number 
-    return a.number.localeCompare(b.number);
-  });
-  const scp = scpList.find(item => item.number === scpId);
+
+  const scp = scpEntries.find(item => item.number === scpId);
+
 
   if (!scp) {
     return <Box>SCP not found</Box>;
   }
 
   return (
-    <Grid container spacing={2} style={{ width: '80%', margin: '0 auto'}}>
+    <Grid container spacing={2} style={{ width: '80%', margin: '0 auto' }}>
       <Grid item xs={12}>
         <Box sx={bodyStyles}>
           <Typography variant="h3">{scp.number}</Typography>
@@ -54,6 +51,8 @@ const SCPFiles = () => {
 
       <Grid item xs={12}>
         <Box>
+          <Typography variant="h4">Description:</Typography>
+
           {scp.description.map((desc, index) => (
             <Typography key={index} mt={1} fontSize={16}>
               {desc}
@@ -91,8 +90,8 @@ const SCPFiles = () => {
               <Box
                 key={key}
               >
-                <Typography variant="h5">Addendum: {key}</Typography>
-                <Typography mt={1} fontSize={16}>
+                <Typography variant="h6">Addendum: {key}</Typography>
+                <Typography mt={1} mb={1} fontSize={16}>
                   {value}
                 </Typography>
               </Box>

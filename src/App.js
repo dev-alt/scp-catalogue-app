@@ -12,6 +12,8 @@ import Catalog from './components/Catalog.js';
 import Data from './assets/scpData.json';
 
 function App() {
+  const scpEntries = Data.sort((a, b) => a.number.localeCompare(b.number));
+
   // Retrieve the isLoading state from localStorage, or default to true
   const [isLoading, setIsLoading] = useState(localStorage.getItem('isLoading') === 'true' || true);
 
@@ -31,18 +33,18 @@ function App() {
     <Router>
       <CustomThemeProvider>
         <Header isLocked={isLoading} />
-        <Navigation isLocked={isLoading} scpEntries={Data} />
+        <Navigation isLocked={isLoading} scpEntries={scpEntries} />
 
-          <Routes>
-            {isLoading ? (
-              <Route path="/" element={<LoadingPage onUnlock={handleUnlock} />} />
-            ) : (
-              <Route path="/" element={<Body />} />
-            )}
-            <Route path="/catalog" element={<Catalog />} />
-            <Route path="/addEntry" element={<AddEntry />} />
-            <Route path="/scp/:scpId" element={<SCPFiles />} />
-          </Routes>
+        <Routes>
+          {isLoading ? (
+            <Route path="/" element={<LoadingPage onUnlock={handleUnlock} />} />
+          ) : (
+            <Route path="/" element={<Body />} />
+          )}
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/addEntry" element={<AddEntry />} />
+          <Route path="/scp/:scpId" element={<SCPFiles scpEntries={scpEntries} />} />
+        </Routes>
 
         <Footer isLocked={isLoading} />
       </CustomThemeProvider>
