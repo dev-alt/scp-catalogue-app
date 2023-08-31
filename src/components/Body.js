@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Paper } from '@mui/material';
 import Data from '../assets/scpData.json';
 import { Link } from 'react-router-dom';
 
@@ -29,6 +29,7 @@ function Body() {
 
   return (
     <Box sx={bodyStyles}>
+      <Paper>
       <Typography variant="h2" sx={{ fontFamily: 'Cinzel Decorative, serif', color: '#333', textAlign: 'center' }}>
         SCP Foundation
       </Typography>
@@ -42,7 +43,7 @@ function Body() {
           </Box>
         ))}
       </Box>
-      
+      </Paper>
     </Box>
   );
 }

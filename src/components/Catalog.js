@@ -7,7 +7,7 @@ import CustomThemeProvider from '../ThemeProvider'; //
 
 function Catalog() {
   return (
-    <CustomThemeProvider> {/* Wrap with your CustomThemeProvider */}
+    <CustomThemeProvider> 
     <Box>
       <Typography variant='h2'>
        SCP Foundation Catalog
