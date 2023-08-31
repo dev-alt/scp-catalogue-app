@@ -23,7 +23,7 @@ function SCPFiles({ scpEntries }) {
   }
 
   return (
-    <Grid container spacing={2} style={{ width: '80%', margin: '0 auto' }}>
+    <Grid container spacing={2} style={{ width: '80%', margin: '0 auto', backgroundColor: '#f0f0f0' }}>
       <Grid item xs={12}>
         <Box sx={bodyStyles}>
           <Typography variant="h3">{scp.number}</Typography>
