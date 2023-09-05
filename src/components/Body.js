@@ -19,6 +19,12 @@ const bodyStyles = {
     textAlign: 'center',
   };
 
+  /**
+   * Returns an array of randomly selected entries from the given data array.
+   * @param {Array} data - The array of entries to select from.
+   * @param {number} count - The number of entries to select.
+   * @returns {Array} - An array of randomly selected entries.
+   */
   function getRandomEntries(data, count) {
     const shuffled = data.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);

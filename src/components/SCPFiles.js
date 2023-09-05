@@ -13,8 +13,19 @@ const bodyStyles = {
 };
 
 function SCPFiles({ scpEntries }) {
+  /**
+   * Retrieves the SCP ID from the URL parameters.
+   * @function
+   * @returns {Object} An object containing the SCP ID.
+   */
   const { scpId } = useParams();
 
+  /**
+   * Finds the SCP entry with the given ID.
+   *
+   * @param {string} scpId - The ID of the SCP entry to find.
+   * @returns {Object} The SCP entry object with the given ID, or undefined if not found.
+   */
   const scp = scpEntries.find(item => item.number === scpId);
 
 
